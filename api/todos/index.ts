@@ -19,9 +19,10 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const {body, dueDate = new Date(), title} = req.body;
+        //todo: fix userId
         await prisma.todo.create({
             data: {
-                body, dueDate, title
+                body, dueDate, title, userId: 1
             }
         });
         res.json({success: true})
